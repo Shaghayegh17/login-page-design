@@ -1,0 +1,176 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --p: rgb(166, 64, 235);
+  --sub: rgb(163, 66, 219);
+  --white: rgb(255, 255, 255);
+  --rul: rgb(15, 1, 15);
+  --orange: rgb(243, 125, 29);
+}
+body {
+  background: url(./picture/ChatGPT\ Image\ Jun\ 8\,\ 2026\,\ 06_08_52\ PM.png);
+}
+
+nav {
+  color: var(--p);
+}
+
+/* sign up */
+
+.main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 90vh;
+}
+
+.signup {
+  color: var(--p);
+  padding: 100px 60px;
+  width: 35%;
+}
+
+h2 {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+#su {
+  background-color: var(--sub);
+  border: 0;
+  color: var(--white);
+  font-weight: bold;
+  border-radius: 10px;
+  height: 50px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="submit"] {
+  width: 90%;
+  height: 30px;
+  margin-bottom: 16px;
+  border-radius: 5px;
+  font-size: large;
+  outline: none;
+  cursor: pointer;
+}
+input[type="text"] {
+  border: 2px solid var(--sub);
+}
+input[type="email"],
+input[type="password"] {
+  padding-left: 10px;
+}
+#rul {
+  color: var(--rul);
+  margin: 10px;
+}
+
+/* sign in */
+.signin {
+  background-color: var(--p);
+  border-radius: 45% 0 0 45%;
+  height: 100vh;
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  align-items: center;
+}
+
+.signin h1 {
+  color: var(--orange);
+  text-align: center;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.signin div {
+  padding-right: 2px;
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.signin input[type="submit"] {
+  width: 65%;
+  background-color: var(--p);
+  border-radius: 20px;
+  line-height: 25px;
+  border: 1px solid var(--orange);
+  color: var(--white);
+}
+
+#lablein {
+  color: var(--white);
+}
+
+@media (max-width: 1024px) {
+  .signin {
+    width: 55%;
+  }
+
+  .signup {
+    width: 45%;
+    padding: 50px;
+  }
+
+  .signin h1 {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .main {
+    flex-direction: column;
+  }
+
+  .signup,
+  .signin {
+    width: 100%;
+  }
+
+  .signin {
+    height: 40vh;
+    border-radius: 0 0 50px 50px;
+    order: -1;
+  }
+
+  .signup {
+    padding: 40px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .signin h1 {
+    font-size: 2.2rem;
+  }
+
+  .signin input[type="submit"] {
+    width: 140px;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="submit"] {
+    width: 100%;
+  }
+
+  .signup {
+    padding: 20px;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+}
