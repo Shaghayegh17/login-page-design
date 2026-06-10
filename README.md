@@ -21,6 +21,8 @@
 
 - HTML5
 - CSS3
+-Javascript
+-Doms and Events
 
 ## 👩‍💻 Designer
 
