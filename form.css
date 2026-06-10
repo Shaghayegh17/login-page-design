@@ -10,6 +10,7 @@
   --white: rgb(255, 255, 255);
   --rul: rgb(15, 1, 15);
   --orange: rgb(243, 125, 29);
+  --valid: rgb(18, 233, 18);
 }
 body {
   background: url(./picture/ChatGPT\ Image\ Jun\ 8\,\ 2026\,\ 06_08_52\ PM.png);
@@ -61,8 +62,11 @@ input[type="submit"] {
   outline: none;
   cursor: pointer;
 }
-input[type="text"] {
-  border: 2px solid var(--sub);
+input[type="text"]:valid,
+input[type="email"]:valid,
+input[type="password"]:valid,
+input[type="submit"]:valid input[type="text"]:valid {
+  border: 2px solid var(--valid);
 }
 input[type="email"],
 input[type="password"] {
