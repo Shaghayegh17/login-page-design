@@ -39,9 +39,30 @@
           <div>
             <input type="radio" name="gender" id="male" value="male" />
             <label for="male">Male</label>
-            <input type="radio" name="gender" value="female"" />
+            <input type="radio" name="gender" value="female" />
             <label for="female">Female</label>
           </div>
+          <div>
+            <select name="howgetknow" id="select">
+              <option value="getknow">نحوه آشنایی</option>
+              <option value="friend">معرفی دوستان</option>
+
+              <option value="socialmedia">اینستاگرام،تلگرام و ...</option>
+              <option value="site">سایت</option>
+            </select>
+          </div>
+          <div>
+            <input
+              type="text"
+              name="friendname"
+              id="friendname"
+              placeholder="نام دوست خود را وارد کنید"
+              required
+            />
+          </div>
+          <!-- <div>
+            <input type="file" name="file" id="file" accept="pdf" multiple />
+          </div> -->
           <div id="rul">
             <input type="checkbox" name="rule" id="rule" />
             <label for="rule">I accept the terms of agreements</label>
@@ -53,10 +74,13 @@
       </section>
       <section class="signin">
         <h1>Get started</h1>
-        <div>
-          <p id="lablein">Do you already have an account?</p>
+        <div class="lablel">
+          <label for="lablein">Do you already have an account?</label>
+          <input type="checkbox" name="siginbefore" id="lablein" />
+        </div>
 
-          <input type="submit" value="Sign in" id="signin" />
+        <div>
+          <input type="submit" value="Sign in" id="signin" name="signin" />
         </div>
       </section>
     </main>

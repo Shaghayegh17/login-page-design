@@ -1,16 +1,26 @@
 const form = document.querySelector("form");
 console.log(form.elements);
 // اینطوری از طریق name به اینپوت دسترسی پیدا کردیم
-form.addEventListener("submit", (event) => {
+// این رویداد به جای دکمه، به خودِ تگ `<form>` وصل می‌شود.
+form.addEventListener("submit", async (event) => {
   event.preventDefault();
-  console.log(form.elements.fullname.value);
-  console.log(form.elements.email.value);
-  console.log(form.elements.password.value);
-  console.log(form.elements.rule.value);
-  console.log(form.elements.gender.value);
-  console.log(form.elements.gender);
+  // console.log(form.elements.fullname.value);
+  // console.log(form.elements.email.value);
+  // console.log(form.elements.password.value);
+  // console.log(form.elements.rule.value);
+  // console.log(form.elements.gender.value);
+  // console.log(form.elements.gender);
   console.log(event.target);
-  console.log(event.type);
+  // console.log(event.type);
+  const formdata = new FormData(event.target);
+  //  به جای اینکه تک‌تک اینپوت‌ها را با آیدی بگیری، این خط کل اطلاعات فرم را یک‌جا بسته‌بندی می‌کند و در متغیر `formData` می‌گذارد.
+  const querystring = new URLSearchParams(formdata).toString();
+  // با فرض اینکه فایل نداریم اطلاعات رو با فرمت متن به سرور میفرستیم
+  await fetch("example.com", {
+    method: "POST",
+    body: querystring,
+    headers: { "content-type": "application/x-www-form-urlencoded" },
+  });
 });
 // راه دوم
 // const { email } = form.elements;
@@ -53,14 +63,14 @@ for (let part of form.elements) {
 // });
 // با روش زیر دیگه گیر نمیکنه رو آلرت و میره بخش بعد
 // برای هر بلور، باید شرط بزاری قبل آلرت دادن
-for (let all of form.elements) {
-  if (all.type === "email" || "text" || "password")
-    all.addEventListener("blur", () => {
-      if (all.value.trim() === "") {
-        alert("فیلد انتخاب شده را حتما پر کنید");
-      }
-    });
-}
+// for (let all of form.elements) {
+//   if (all.type === "email" || "text" || "password")
+//     all.addEventListener("blur", () => {
+//       if (all.value.trim() === "") {
+//         alert("فیلد انتخاب شده را حتما پر کنید");
+//       }
+//     });
+// }
 // radio
 // first way
 // for (let gend of form.elements.gender) {
@@ -87,3 +97,47 @@ form.addEventListener("change", (event) => {
 });
 // rule.checked = true;
 // در حالت بالا، تیک رول خودکار زده میشه
+// select events
+const { howgetknow } = form.elements;
+console.log(howgetknow);
+howgetknow.addEventListener("change", (event) => {
+  console.log("Selected Text:", event.target.value);
+});
+
+if (howgetknow.value === "getknow") {
+  howgetknow.addEventListener("blur", () => {
+    alert("نحوه آشنایی با سایت را انتخاب کنید");
+  });
+}
+howgetknow.value = "سایت";
+const namefriend = document.querySelector("#friendname");
+howgetknow.addEventListener("change", () => {
+  if (howgetknow.value === "friend") {
+    namefriend.style.display = "inline";
+  } else {
+    namefriend.style.display = "none";
+  }
+});
+
+// file events
+const { file } = form.elements;
+file.addEventListener("change", (event) => {
+  console.log(event.target.files);
+});
+file.addEventListener("change", () => {
+  if (file.size > 2) {
+    file.value = "";
+  }
+});
+
+// click
+// این رویداد فقط و فقط وقتی اجرا می‌شود که کاربر دقیقاً روی آن المان (مثلاً دکمه Sign Up) *کلیک کند.
+
+const sign = document.querySelector("#signin");
+sign.addEventListener("click", (event) => {
+  console.log(event.target.value);
+});
+sign.addEventListener("click", () => {
+  sign.style.cssText =
+    "border:2px solid rgb(18, 233, 18); transform: scale(1.1);";
+});

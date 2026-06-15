@@ -12,7 +12,12 @@
   --orange: rgb(243, 125, 29);
   --valid: rgb(18, 233, 18);
 }
+@font-face {
+  font-family: vazir;
+  src: url(./fontsmain/Vazirmatn-VariableFont_wght.ttf);
+}
 body {
+  font-family: vazir, Arial, Helvetica, sans-serif;
   background: url(./picture/ChatGPT\ Image\ Jun\ 8\,\ 2026\,\ 06_08_52\ PM.png);
 }
 
@@ -117,6 +122,19 @@ input[type="password"] {
 #lablein {
   color: var(--white);
 }
+.lablel {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 10px;
+  gap: 8px;
+  width: 100%;
+  font-size: 10px;
+  color: var(--rul);
+  margin: 10px;
+  font-size: small;
+}
 
 @media (max-width: 1024px) {
   .signin {
@@ -166,7 +184,8 @@ input[type="password"] {
   input[type="text"],
   input[type="email"],
   input[type="password"],
-  input[type="submit"],input[type="radio"] {
+  input[type="submit"],
+  input[type="radio"] {
     width: 100%;
   }
 
@@ -177,4 +196,40 @@ input[type="password"] {
   h2 {
     font-size: 1.8rem;
   }
+}
+/* select */
+select {
+  width: 90%; /* هم‌اندازه با بقیه اینپوت‌ها */
+  height: 35px;
+  margin-bottom: 16px;
+  border-radius: 5px;
+  font-size: medium;
+  outline: none;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  padding: 0 5px;
+  color: var(--rul); /* استفاده از رنگ تیره‌ای که در root تعریف کردی */
+  background-color: var(--white);
+}
+
+/* وقتی سلکتور فوکوس می‌شود یا مقداری دارد */
+select:focus {
+  border: 2px solid var(--sub); /* تغییر رنگ مرز به بنفش هنگام کلیک */
+}
+
+/* استایل برای گزینه‌های داخل منو */
+option {
+  background-color: var(--white);
+  color: var(--rul);
+  padding: 10px;
+}
+
+/* هماهنگی با مدیا کوئری موبایل که خودت نوشتی */
+@media (max-width: 480px) {
+  select {
+    width: 100%;
+  }
+}
+#friendname {
+  display: none;
 }
