@@ -13,13 +13,22 @@ form.addEventListener("submit", async (event) => {
   console.log(event.target);
   // console.log(event.type);
   const formdata = new FormData(event.target);
+  // در صورتی که با فایل ارسال کنیم به سرور همین فرم دیتا رو به بادی میدیم و در هدر هم میزنیم مولتیپارت دش فرم دیتا
+  const image = formdata.getAll("file");
+  console.log(image);
+  // برای دریافت فایل های بارگزاری شده میشه اینکارو کرد و در گت آل نام اینپوت فایل و میزاریم
   //  به جای اینکه تک‌تک اینپوت‌ها را با آیدی بگیری، این خط کل اطلاعات فرم را یک‌جا بسته‌بندی می‌کند و در متغیر `formData` می‌گذارد.
-  const querystring = new URLSearchParams(formdata).toString();
+  // const querystring = new URLSearchParams(formdata).toString();
   // با فرض اینکه فایل نداریم اطلاعات رو با فرمت متن به سرور میفرستیم
+  // const json = json.stringify(Object.fromEntries(formdata));
   await fetch("example.com", {
     method: "POST",
-    body: querystring,
-    headers: { "content-type": "application/x-www-form-urlencoded" },
+    // body: querystring,
+    // body: json,
+    body: formdata,
+    // headers: { "content-type": "application/x-www-form-urlencoded" },
+    // headers: { "content-type": "application/json" },
+    headers: { "content-type": "multipart/form-data" },
   });
 });
 // راه دوم
@@ -124,11 +133,11 @@ const { file } = form.elements;
 file.addEventListener("change", (event) => {
   console.log(event.target.files);
 });
-file.addEventListener("change", () => {
-  if (file.size > 2) {
-    file.value = "";
-  }
-});
+// file.addEventListener("change", () => {
+//   if (file.size > 2) {
+//     file.value = "";
+//   }
+// });
 
 // click
 // این رویداد فقط و فقط وقتی اجرا می‌شود که کاربر دقیقاً روی آن المان (مثلاً دکمه Sign Up) *کلیک کند.
