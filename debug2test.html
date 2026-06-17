@@ -11,4 +11,6 @@ event.target.files[0]; console.log("فایل انتخاب شده:", selectedFile
 1024 * 1024) { alert("حجم فایل نباید بیشتر از ۲ مگابایت باشد!"); file.value =
 ""; // پاک کردن انتخاب کاربر } }); // مدیریت کلیک دکمه const sign =
 document.querySelector("#signin"); sign.addEventListener("click", (event) => {
-console.log("مقدار دکمه:", event.target.value);})
+console.log("مقدار دکمه:", event.target.value);}) // تغییر استایل با یک بار کلیک
+sign.style.cssText = "border:2px solid rgb(18, 233, 18); transform: scale(1.1);
+transition: 0.3s;"; });
