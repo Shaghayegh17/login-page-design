@@ -1,0 +1,16 @@
+// تعریف متغیرها در ابتدا برای دسترسی راحت‌تر const howgetknow =
+document.querySelector("#howgetknow"); // فرض کردم آیدی این است const namefriend
+= document.querySelector("#friendname"); const form =
+document.querySelector("form"); // برای دسترسی به elements // مدیریت نمایش فیلد
+نام دوست howgetknow.addEventListener("change", () => { if (howgetknow.value ===
+"friend") { namefriend.style.display = "inline"; } else {
+namefriend.style.display = "none"; } }); // مدیریت فایل‌ها const { file } =
+form.elements; file.addEventListener("change", (event) => { const selectedFile =
+event.target.files[0]; console.log("فایل انتخاب شده:", selectedFile); // تمرین
+چک کردن حجم (مثلاً حداکثر ۲ مگابایت) if (selectedFile && selectedFile.size > 2
+1024 * 1024) { alert("حجم فایل نباید بیشتر از ۲ مگابایت باشد!"); file.value =
+""; // پاک کردن انتخاب کاربر } }); // مدیریت کلیک دکمه const sign =
+document.querySelector("#signin"); sign.addEventListener("click", (event) => {
+console.log("مقدار دکمه:", event.target.value);}) // تغییر استایل با یک بار کلیک
+sign.style.cssText = "border:2px solid rgb(18, 233, 18); transform: scale(1.1);
+transition: 0.3s;"; });
